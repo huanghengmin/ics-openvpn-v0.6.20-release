@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2012-2014 Arne Schwabe
+  ~ Distributed under the GNU GPL v2. For full terms see the file doc/LICENSE.txt
+  -->
+
+<resources>
+   <declare-styleable name="FileSelectLayout">
+      <attr name="title" format="string|reference" />
+      <attr name="certificate" format="boolean" />
+<!--     <attr name="taskid" format="integer" /> -->
+       <attr name="showClear" format="boolean" />
+   </declare-styleable>
+
+    <!-- 圆角item -->
+    <declare-styleable name="roundCornerItem">
+        <attr name="roundCornerItemIcon" format="reference" />
+        <attr name="roundCornerItemContent" format="string" />
+        <attr name="roundCornerItemRightDrawable" format="reference" />
+        <attr name="roundCornerItemDirection">
+            <enum name="top" value="0" />
+            <enum name="center" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="all" value="3" />
+        </attr>
+    </declare-styleable>
+</resources>

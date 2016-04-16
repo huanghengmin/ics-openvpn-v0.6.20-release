@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:roundCornerItem="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/custom_bg"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/titleBar"
+        layout="@layout/custom_titlebar" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <com.zd.vpn.util.RoundCornerItem
+            android:id="@+id/start"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            roundCornerItem:roundCornerItemContent="@string/vpn_list_title"
+            roundCornerItem:roundCornerItemDirection="all"
+            roundCornerItem:roundCornerItemIcon="@drawable/start"
+            roundCornerItem:roundCornerItemRightDrawable="@drawable/me_arrow" />
+
+        <!--  <com.zd.vpn.util.RoundCornerItem
+              android:id="@+id/statusTv"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="12dp"
+              roundCornerItem:roundCornerItemContent="@string/no_process"
+              roundCornerItem:roundCornerItemDirection="all"
+              roundCornerItem:roundCornerItemIcon="@drawable/status"
+              roundCornerItem:roundCornerItemRightDrawable="@drawable/me_arrow" />-->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical">
+
+            <com.zd.vpn.util.RoundCornerItem
+                android:id="@+id/setting"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                roundCornerItem:roundCornerItemContent="@string/basic"
+                roundCornerItem:roundCornerItemDirection="top"
+                roundCornerItem:roundCornerItemIcon="@drawable/setting"
+                roundCornerItem:roundCornerItemRightDrawable="@drawable/me_arrow" />
+
+            <com.zd.vpn.util.RoundCornerItem
+                android:id="@+id/cert"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                roundCornerItem:roundCornerItemContent="@string/show_certification_text"
+                roundCornerItem:roundCornerItemDirection="center"
+                roundCornerItem:roundCornerItemIcon="@drawable/cert"
+                roundCornerItem:roundCornerItemRightDrawable="@drawable/me_arrow" />
+
+              <com.zd.vpn.util.RoundCornerItem
+                  android:id="@+id/setting_advanced"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  roundCornerItem:roundCornerItemContent="@string/setting_advanced"
+                  roundCornerItem:roundCornerItemDirection="center"
+                  roundCornerItem:roundCornerItemIcon="@drawable/setting"
+                  roundCornerItem:roundCornerItemRightDrawable="@drawable/me_arrow" />
+
+             <!-- <com.zd.vpn.util.RoundCornerItem
+                  android:id="@+id/config"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  roundCornerItem:roundCornerItemContent="@string/settings_more"
+                  roundCornerItem:roundCornerItemDirection="center"
+                  roundCornerItem:roundCornerItemIcon="@drawable/config"
+                  roundCornerItem:roundCornerItemRightDrawable="@drawable/me_arrow" />-->
+
+            <com.zd.vpn.util.RoundCornerItem
+                android:id="@+id/about"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                roundCornerItem:roundCornerItemContent="@string/about"
+                roundCornerItem:roundCornerItemDirection="bottom"
+                roundCornerItem:roundCornerItemIcon="@drawable/about"
+                roundCornerItem:roundCornerItemRightDrawable="@drawable/me_arrow" />
+        </LinearLayout>
+
+
+        <com.zd.vpn.util.RoundCornerItem
+            android:id="@+id/exit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            roundCornerItem:roundCornerItemContent="@string/exit_text"
+            roundCornerItem:roundCornerItemDirection="all"
+            roundCornerItem:roundCornerItemIcon="@drawable/exit"
+            roundCornerItem:roundCornerItemRightDrawable="@null" />
+
+        <!--  <Button
+              android:id="@+id/statusTv"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="12dp"
+              android:textColor="@color/red" />-->
+    </LinearLayout>
+
+</LinearLayout>

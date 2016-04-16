@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/custom_bg"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@id/titleBar"
+        layout="@layout/custom_titlebar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="4dp" >
+
+        <TextView
+            style="@style/item"
+            android:layout_marginTop="5dp"
+            android:text="@string/address"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/address"
+            style="@style/item"
+            android:layout_marginLeft="8dip"
+            android:layout_marginRight="8dip"
+            android:background="@drawable/round_corner_one_bg_normal"
+            android:inputType="textUri"
+            android:padding="8dp"
+            android:textColor="@color/black" >
+
+            <!-- <requestFocus /> -->
+        </EditText>
+
+        <TextView
+            style="@style/item"
+            android:layout_marginTop="5dp"
+            android:text="@string/port"
+            android:textColor="@color/black" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dip"
+            android:layout_marginRight="8dip" >
+
+            <EditText
+                android:id="@+id/port"
+                style="@style/item"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/round_corner_one_bg_normal"
+                android:inputType="number"
+                android:padding="8dp"
+                android:textColor="@color/black" />
+
+            <ToggleButton
+                android:id="@+id/tcpudp"
+                style="@style/accountSetupButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:textOff="TCP"
+                android:textOn="UDP" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/item"
+            android:layout_marginTop="5dp"
+            android:text="策略端口："
+            android:textColor="@color/black" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dip"
+            android:layout_marginRight="8dip" >
+
+            <EditText
+                android:id="@+id/poli_port"
+                style="@style/item"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/round_corner_one_bg_normal"
+                android:inputType="number"
+                android:padding="8dp"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+
+        <CheckBox
+            android:id="@+id/lzo"
+            style="@style/item"
+            android:layout_marginBottom="8dip"
+            android:layout_marginTop="8dip"
+            android:checked="false"
+            android:text="@string/useLZO"
+            android:textColor="@color/black" />
+
+        <TextView
+            style="@style/item"
+            android:layout_marginTop="5dp"
+            android:text="@string/vpn_ping"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/ping"
+            style="@style/item"
+            android:layout_marginLeft="8dip"
+            android:layout_marginRight="8dip"
+            android:background="@drawable/round_corner_one_bg_normal"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            style="@style/item"
+            android:layout_marginTop="5dp"
+            android:text="证书容器名称："
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/cert_container_name"
+            style="@style/item"
+            android:layout_marginLeft="8dip"
+            android:layout_marginRight="8dip"
+            android:background="@drawable/round_corner_one_bg_normal"
+            android:padding="8dp"
+            android:textColor="@color/black" />
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dip"
+            android:layout_marginRight="8dip" >
+
+            <Button
+                android:id="@+id/basic_settings__submit_but"
+                style="@style/item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/basic_settings_submit_but_text" />
+
+            <Button
+                android:id="@+id/basic_settings__back_but"
+                style="@style/item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/basic_settings_back_but_text" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
