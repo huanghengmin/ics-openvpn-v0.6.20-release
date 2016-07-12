@@ -56,7 +56,6 @@ public class PingUtils {
         long pingStartTime = 0;
         long pingEndTime = 0;
         ArrayList<Double> rrts = new ArrayList<Double>();
-
         try {
             int timeOut = (int) (1000 * (double) PING_TIMEOUT / PING_COUNT);
             for (int i = 0; i < PING_COUNT; i++) {

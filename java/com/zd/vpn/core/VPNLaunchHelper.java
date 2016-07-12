@@ -54,8 +54,7 @@ public class VPNLaunchHelper {
 				VpnStatus.logError("Failed to make OpenVPN executable");
 				return false;
 			}
-				
-			
+
 			return true;
 		} catch (IOException e) {
 			if(e2!=null)

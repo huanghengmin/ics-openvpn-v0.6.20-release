@@ -25,10 +25,10 @@ public class GetByte {
         byte[] data = new byte[0];
         URL url = null;
         url = new URL(path);
-        System.out.println(path);
+//        System.out.println(path);
         HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
         httpURLConnection.setRequestMethod("GET");
-        httpURLConnection.setConnectTimeout(5 * 1000);
+        httpURLConnection.setConnectTimeout(10 * 1000);
         if (httpURLConnection.getResponseCode() == 200) {
             iStream = httpURLConnection.getInputStream();
         }
@@ -39,15 +39,15 @@ public class GetByte {
     public static byte[] download(String path) throws Exception {
         InputStream iStream = null;
         byte[] data = new byte[0];
-        System.out.println(path);
+//        System.out.println(path);
         HttpGet httpGet = new HttpGet(path);
-        System.out.println(1);
+//        System.out.println(1);
         HttpClient httpClient = new DefaultHttpClient();
-        System.out.println(2);
+//        System.out.println(2);
         HttpResponse response = httpClient.execute(httpGet);
-        System.out.println(3);
+//        System.out.println(3);
         data = readInstream(response.getEntity().getContent());
-        System.out.println(4);
+//        System.out.println(4);
         return data;
     }
 

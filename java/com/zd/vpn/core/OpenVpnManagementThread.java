@@ -61,13 +61,16 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
 
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(openVpnService);
-        boolean managemeNetworkState = prefs.getBoolean("netchangereconnect", true);
+//        boolean managemeNetworkState = prefs.getBoolean("netchangereconnect", true);
+        boolean managemeNetworkState = prefs.getBoolean("netchangereconnect", false);
+//        Log.i("vpn","netchangereconnect set "+managemeNetworkState);
         if (managemeNetworkState)
             mReleaseHold = false;
 
     }
 
     public boolean openManagementInterface(@NotNull Context c) {
+//        Log.i("vpn","openManagementInterface");
         // Could take a while to open connection
         int tries = 8;
 
@@ -202,7 +205,7 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
     }
 
     private String processInput(String pendingInput) {
-
+//        Log.i("vpn","processInput ");
 
         while (pendingInput.contains("\n")) {
             String[] tokens = pendingInput.split("\\r?\\n", 2);
@@ -219,6 +222,7 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
 
     private void processCommand(String command) {
         //Log.i(TAG, "Line from managment" + command);
+//        Log.i("vpn", "Line from managment" + command);
 
 
         if (command.startsWith(">") && command.contains(":")) {
@@ -302,11 +306,12 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
     }
 
     private void handleHold() {
+//        Log.i("vpn","mReleaseHold = "+mReleaseHold);
         if (mReleaseHold) {
             releaseHoldCmd();
         } else {
             mWaitingForRelease = true;
-
+//            Log.i("vpn","VpnStatus.updateStatePause "+lastPauseReason);
             VpnStatus.updateStatePause(lastPauseReason);
 
 
@@ -452,7 +457,7 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
         if (!extra.equals("tun")) {
             // We only support tun
             VpnStatus.logError(String.format("Device type %s requested, but only tun is possible with the Android API, sorry!", extra));
-
+            Log.i("vpn","We only support tun");
             return false;
         }
         ParcelFileDescriptor pfd = mOpenVPNService.openTun();
@@ -568,13 +573,15 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
 
     public void signalusr1() {
         mReleaseHold = false;
-
+//        Log.i("vpn", "mWaitingForRelease = "+mWaitingForRelease);
         if (!mWaitingForRelease)
             managmentCommand("signal SIGUSR1\n");
-        else
+        else {
             // If signalusr1 is called update the state string
             // if there is another for stopping
             VpnStatus.updateStatePause(lastPauseReason);
+//            Log.i("vpn", "lastPauseReason = pauseReason.noNetwork");
+        }
     }
 
     public void reconnect() {
@@ -606,7 +613,9 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
     public void resume() {
         releaseHold();
         /* Reset the reason why we are disconnected */
+//        Log.i("vpn","Reset the reason why we are disconnected pauseReason.noNetwork");
         lastPauseReason = pauseReason.noNetwork;
+//        Log.i("vpn","lastPauseReason = pauseReason.noNetwork");
     }
 
     @Override

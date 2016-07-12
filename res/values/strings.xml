@@ -47,6 +47,8 @@
     <string name="no_keystore_cert_selected">您必须选择一个用户证书</string>
     <string name="no_error_found">未找到错误</string>
     <string name="config_error_found">配置有错误</string>
+    <string name="check_validity_error_found">系统时间不正确或证书未生效</string>
+    <string name="check_validity_error_cert">证书错误</string>
     <string name="ipv4_format_error">无法解析 IPv4 地址</string>
     <string name="custom_route_format_error">无法解析自定义路由</string>
     <string name="pw_query_hint">(根据需求留空)</string>
@@ -328,7 +330,7 @@
     <string name="settings_more">更多设置</string>
     <string name="product_name">产品名称：安全接入网关客户端</string>
     <string name="copyright">版权所有：北京中盾安全技术开发有限公司</string>
-    <string name="version_value">版本号：V2.3.2.4</string>
+    <string name="version_value">版本号：V2.3.2.7</string>
     <string name="vpn_ping">设置PIN码 :</string>
 
     <string name="no_process">未运行</string>

@@ -41,6 +41,7 @@ public class ReturnCode {
     public static final String RETURN_CLIENT_READ_CERT_ERROR = "0X00DFAB10";           //"启动出错，未读取到证书，请确定加密卡存在并已进行证书签发";
     public static final String RETURN_CLIENT_MSG_ERROR = "0X00DFAB11";                  //"客户端绑定信息校验失败";
     public static final String RETURN_CLIENT_STATUS_ERROR = "0X00DFAB12";               //"客户端状态信息校验失败";
+    public static final String RETURN_PLEASE_INIT_ERROR = "0X00DFAB13";               //"客户端需要先初始化";
 
 
     public static String getReturnStatusMsg(String code) {

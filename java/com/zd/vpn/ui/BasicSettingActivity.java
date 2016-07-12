@@ -62,12 +62,15 @@ public class BasicSettingActivity extends BaseActivity implements OnClickListene
         this.basicSettingsSubmitBut.setOnClickListener(this);
 
         shPreferences = this.getSharedPreferences("com.zd.vpn", Context.MODE_PRIVATE);
-        mServerAddress.setText(shPreferences.getString("vpn.ip", "192.168.110.2"));
-        mServerPort.setText(shPreferences.getString("vpn.port", "1194"));
+//        mServerAddress.setText(shPreferences.getString("vpn.ip", "192.168.110.2"));
+        mServerAddress.setText(shPreferences.getString("vpn.ip", ""));
+//        mServerPort.setText(shPreferences.getString("vpn.port", "1194"));
+        mServerPort.setText(shPreferences.getString("vpn.port", ""));
         mUseLzo.setChecked(shPreferences.getBoolean("vpn.lzo", true));
         mTcpUdp.setChecked(shPreferences.getBoolean("vpn.tcpUdp", false));
         mKeyPassword.setText(shPreferences.getString("vpn.pin", "111111"));
-        mPoliPort.setText(shPreferences.getString("vpn.poliPort", "80"));
+//        mPoliPort.setText(shPreferences.getString("vpn.poliPort", "80"));
+        mPoliPort.setText(shPreferences.getString("vpn.poliPort", ""));
         mCertContainerName.setText(shPreferences.getString("vpn.certContainerName", "KingTrustVPN"));
     }
 

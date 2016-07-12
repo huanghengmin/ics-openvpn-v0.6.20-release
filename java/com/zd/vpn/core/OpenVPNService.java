@@ -181,6 +181,7 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
                 return R.drawable.ic_stat_vpn;
             case LEVEL_AUTH_FAILED:
             case LEVEL_NONETWORK:
+//                Log.i("vpn","LEVEL_NONETWORK");
             case LEVEL_NOTCONNECTED:
                 return R.drawable.ic_stat_vpn_offline;
             case LEVEL_CONNECTING_NO_SERVER_REPLY_YET:
@@ -257,6 +258,7 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
     }
 
     synchronized void registerDeviceStateReceiver(OpenVPNManagement magnagement) {
+//        Log.i("vpn","registerDeviceStateReceiver time:"+System.currentTimeMillis());
         // Registers BroadcastReceiver to track network connection changes.
         IntentFilter filter = new IntentFilter();
         filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
@@ -283,6 +285,7 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
     }
 
     synchronized void unregisterDeviceStateReceiver() {
+//        Log.i("vpn","unregisterDeviceStateReceiver time:"+System.currentTimeMillis());
         if (mDeviceStateReceiver != null)
             try {
                 VpnStatus.removeByteCountListener(mDeviceStateReceiver);
@@ -316,6 +319,8 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+//        Log.i("vpn","onStartCommand");
 
         if (intent != null && intent.getBooleanExtra(ALWAYS_SHOW_NOTIFICATION, false))
             mNotificationAlwaysVisible = true;
@@ -515,6 +520,7 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
     }
 
     public ParcelFileDescriptor openTun() {
+//        Log.i("vpn","openTun");
 
         //Debug.startMethodTracing(getExternalFilesDir(null).toString() + "/opentun.trace", 40* 1024 * 1024);
 

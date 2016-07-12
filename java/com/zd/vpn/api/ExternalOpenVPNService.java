@@ -36,6 +36,7 @@ import java.lang.ref.WeakReference;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.zd.vpn.LaunchVPN;
 import com.zd.vpn.VpnProfile;
 import com.zd.vpn.core.ConfigParser;
 import com.zd.vpn.core.ConfigParser.ConfigParseError;
@@ -203,15 +204,23 @@ public class ExternalOpenVPNService extends Service implements StateListener {
 //                                if (msg != null && !"".equals(msg))
 //                                    Toast.makeText(getBaseContext(), msg, Toast.LENGTH_LONG).show();
                                 //start vpn
-                                ConfigUtil configUtil = new ConfigUtil(getBaseContext());
+                                /*ConfigUtil configUtil = new ConfigUtil(getBaseContext());
                                 String uuid = "";
 //                                if (configUtil.getUuid() == null) {
                                 uuid = configUtil.config(getApplicationContext());
-                                /*} else {
+                                *//*} else {
                                     uuid = configUtil.getUuid();
-                                }*/
+                                }*//*
                                 VpnProfile vp = ProfileManager.get(getBaseContext(), uuid);
-                                startProfile(vp);
+                                startProfile(vp);*/
+
+                                ConfigUtil configUtil = new ConfigUtil(getApplicationContext());
+                                String uuid = configUtil.config(getApplicationContext());
+                                Intent intent = new Intent(getApplicationContext(), LaunchVPN.class);
+                                intent.putExtra(LaunchVPN.EXTRA_KEY, uuid);
+                                intent.setAction(Intent.ACTION_MAIN);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
                             }
 
                             @Override
@@ -248,11 +257,19 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                                 Log.v("vpn", "ok");
 //                                if (msg != null && !"".equals(msg))
 //                                    Toast.makeText(getBaseContext(), ReturnCode.getReturnStatusMsg(msg), Toast.LENGTH_LONG).show();
-                                ConfigUtil configUtil = new ConfigUtil(getBaseContext());
+                                /*ConfigUtil configUtil = new ConfigUtil(getBaseContext());
                                 String uuid = configUtil.config(getApplicationContext());
 
                                 VpnProfile vp = ProfileManager.get(getBaseContext(), uuid);
-                                startProfile(vp);
+                                startProfile(vp);*/
+
+                                ConfigUtil configUtil = new ConfigUtil(getApplicationContext());
+                                String uuid = configUtil.config(getApplicationContext());
+                                Intent intent = new Intent(getApplicationContext(), LaunchVPN.class);
+                                intent.putExtra(LaunchVPN.EXTRA_KEY, uuid);
+                                intent.setAction(Intent.ACTION_MAIN);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
                             }
 
                             @Override
@@ -314,16 +331,24 @@ public class ExternalOpenVPNService extends Service implements StateListener {
 //                                if (msg != null && !"".equals(msg))
 //                                    Toast.makeText(getBaseContext(), msg, Toast.LENGTH_LONG).show();
                                 //start vpn
-                                ConfigUtil configUtil = new ConfigUtil(getBaseContext());
+                                /*ConfigUtil configUtil = new ConfigUtil(getBaseContext());
                                 String uuid = "";
 //                                if (configUtil.getUuid() == null) {
                                 uuid = configUtil.config(getApplicationContext());
-                               /* } else {
+                               *//* } else {
                                     uuid = configUtil.getUuid();
-                                }*/
+                                }*//*
 
                                 VpnProfile vp = ProfileManager.get(getBaseContext(), uuid);
-                                startProfile(vp);
+                                startProfile(vp);*/
+
+                                ConfigUtil configUtil = new ConfigUtil(getApplicationContext());
+                                String uuid = configUtil.config(getApplicationContext());
+                                Intent intent = new Intent(getApplicationContext(), LaunchVPN.class);
+                                intent.putExtra(LaunchVPN.EXTRA_KEY, uuid);
+                                intent.setAction(Intent.ACTION_MAIN);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
                             }
 
                             @Override
@@ -359,10 +384,18 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                                 Log.v("vpn", "ok");
 //                                if (msg != null && !"".equals(msg))
 //                                    Toast.makeText(getBaseContext(), ReturnCode.getReturnStatusMsg(msg), Toast.LENGTH_LONG).show();
-                                ConfigUtil configUtil = new ConfigUtil(getBaseContext());
+                               /* ConfigUtil configUtil = new ConfigUtil(getBaseContext());
                                 String uuid = configUtil.config(getApplicationContext());
                                 VpnProfile vp = ProfileManager.get(getBaseContext(), uuid);
-                                startProfile(vp);
+                                startProfile(vp);*/
+
+                                ConfigUtil configUtil = new ConfigUtil(getApplicationContext());
+                                String uuid = configUtil.config(getApplicationContext());
+                                Intent intent = new Intent(getApplicationContext(), LaunchVPN.class);
+                                intent.putExtra(LaunchVPN.EXTRA_KEY, uuid);
+                                intent.setAction(Intent.ACTION_MAIN);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
                             }
 
                             @Override
@@ -494,10 +527,19 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                         String code =  tPost.postData();
                         boolean flag = ReturnCode.getBooleanMsg(code);
                         if(flag){
-                            ConfigUtil configUtil = new ConfigUtil(getBaseContext());
+                       /*     ConfigUtil configUtil = new ConfigUtil(getBaseContext());
                             String uuid = configUtil.config(getBaseContext());
                             VpnProfile vp = ProfileManager.get(getBaseContext(), uuid);
-                            startProfile(vp);
+                            startProfile(vp);*/
+
+                            ConfigUtil configUtil = new ConfigUtil(getApplicationContext());
+                            String uuid = configUtil.config(getApplicationContext());
+                            Intent intent = new Intent(getApplicationContext(), LaunchVPN.class);
+                            intent.putExtra(LaunchVPN.EXTRA_KEY, uuid);
+                            intent.setAction(Intent.ACTION_MAIN);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+
                             return code;
                         }else {
 //                            if (code != null && !"".equals(code))
@@ -512,10 +554,17 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                         String code =  tPost.postData();
                         boolean flag = ReturnCode.getBooleanMsg(code);
                         if(flag){
-                            ConfigUtil configUtil = new ConfigUtil(getBaseContext());
+                            /*ConfigUtil configUtil = new ConfigUtil(getBaseContext());
                             String uuid = configUtil.config(getBaseContext());
                             VpnProfile vp = ProfileManager.get(getBaseContext(), uuid);
-                            startProfile(vp);
+                            startProfile(vp);*/
+                            ConfigUtil configUtil = new ConfigUtil(getApplicationContext());
+                            String uuid = configUtil.config(getApplicationContext());
+                            Intent intent = new Intent(getApplicationContext(), LaunchVPN.class);
+                            intent.putExtra(LaunchVPN.EXTRA_KEY, uuid);
+                            intent.setAction(Intent.ACTION_MAIN);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
                             return code;
                         }else {
 //                            if (code != null && !"".equals(code))
@@ -523,6 +572,8 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                             return code;
                         }
                     }
+                }else {
+                    return ReturnCode.RETURN_PLEASE_INIT_ERROR;
                 }
             }
             return ReturnCode.RETURN_CLIENT_READ_CERT_ERROR;
@@ -694,6 +745,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                 FileUtil.copy(data, save_path + FileDownloader.KEY_PATH);
             } catch (IOException e1) {
                 e1.printStackTrace();
+                return false;
             }
 
         try {
@@ -707,6 +759,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                 FileUtil.copy(data, save_path + FileDownloader.CA_PATH);
             } catch (IOException e1) {
                 e1.printStackTrace();
+                return false;
             }
 
         try {
@@ -720,6 +773,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                 FileUtil.copy(data, save_path + FileDownloader.CONFIG_PATH);
             } catch (IOException e1) {
                 e1.printStackTrace();
+                return false;
             }
 
         File file = new File(save_path + FileDownloader.CONFIG_PATH);
@@ -729,8 +783,10 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                 ConfigFileUtil.update(ip, String.valueOf(port), pinCode, tcpudp, lzo, data1, save_path + FileDownloader.CONFIG_PATH);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
+                return false;
             } catch (Exception e) {
                 e.printStackTrace();
+                return false;
             }
         }
         try {
@@ -739,6 +795,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                 FileUtil.copy(data, save_path + FileDownloader.STRATEGY_PATH);
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
         return true;
     }

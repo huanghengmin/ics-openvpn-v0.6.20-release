@@ -13,6 +13,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.NetworkInfo.State;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.util.LinkedList;
 
@@ -106,9 +107,8 @@ public class DeviceStateReceiver extends BroadcastReceiver implements ByteCountL
     @Override
     public void onReceive(Context context, Intent intent) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-
         if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
+//            Log.i("vpn","ConnectivityManager.CONNECTIVITY_ACTION recevid "+intent.getAction());
             networkStateChange(context);
         } else if (Intent.ACTION_SCREEN_OFF.equals(intent.getAction())) {
             boolean screenOffPause = prefs.getBoolean("screenoff", false);
@@ -144,10 +144,12 @@ public class DeviceStateReceiver extends BroadcastReceiver implements ByteCountL
 
 
     public void networkStateChange(Context context) {
+//        Log.i("vpn","networkStateChange");
+
         NetworkInfo networkInfo = getCurrentNetworkInfo(context);
+//        Log.i("vpn",networkInfo.toString());
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean sendusr1 = prefs.getBoolean("netchangereconnect", true);
-
 
         String netstatestring;
         if (networkInfo == null) {
@@ -175,6 +177,7 @@ public class DeviceStateReceiver extends BroadcastReceiver implements ByteCountL
         }
 
         if (networkInfo != null && networkInfo.getState() == State.CONNECTED) {
+//            Log.i("vpn","networkInfo CONNECTED "+networkInfo.toString());
             int newnet = networkInfo.getType();
             network = connectState.SHOULDBECONNECTED;
 
@@ -198,6 +201,7 @@ public class DeviceStateReceiver extends BroadcastReceiver implements ByteCountL
                 lastNetwork = newnet;
             }
         } else if (networkInfo == null) {
+//            Log.i("vpn","networkInfo == null Not connected, stop openvpn, set last connected network to no network");
             // Not connected, stop openvpn, set last connected network to no network
             lastNetwork = -1;
             if (sendusr1) {
@@ -234,8 +238,10 @@ public class DeviceStateReceiver extends BroadcastReceiver implements ByteCountL
         if (screen == connectState.DISCONNECTED)
             return pauseReason.screenOff;
 
-        if (network == connectState.DISCONNECTED)
+        if (network == connectState.DISCONNECTED) {
+//            Log.i("vpn", "connectState.DISCONNECTED return pauseReason.noNetwork");
             return pauseReason.noNetwork;
+        }
 
         return pauseReason.userPause;
     }

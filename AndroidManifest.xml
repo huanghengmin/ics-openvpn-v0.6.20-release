@@ -267,7 +267,7 @@
         </activity>
 
 
-        <receiver android:name=".alarm.AlarmReceiver"></receiver>
+        <!--<receiver android:name=".alarm.AlarmReceiver"></receiver>-->
 
        <!-- <receiver android:name="com.zd.vpn.alarm.SampleBootReceiver"
             android:enabled="false">
@@ -284,7 +284,7 @@
             </intent-filter>
         </receiver>-->
 
-        <service android:name=".alarm.AlarmSchedulingService" />
+        <!--<service android:name=".alarm.AlarmSchedulingService" />-->
 
    <!--     <receiver android:name=".receiver.SDReceiver">
         <intent-filter>

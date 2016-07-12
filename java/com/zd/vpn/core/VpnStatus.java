@@ -14,6 +14,8 @@ import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
+
 import com.zd.vpn.R;
 
 import java.io.ByteArrayInputStream;
@@ -392,6 +394,7 @@ public class VpnStatus {
     public static void updateStatePause(OpenVPNManagement.pauseReason pauseReason) {
         switch (pauseReason) {
             case noNetwork:
+//				Log.i("vpn","NONETWORK");
                 VpnStatus.updateStateString("NONETWORK", "", R.string.state_nonetwork, ConnectionStatus.LEVEL_NONETWORK);
                 break;
             case screenOff:
