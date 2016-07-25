@@ -149,7 +149,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
             Intent vpnPermissionIntent = VpnService.prepare(ExternalOpenVPNService.this);
             SharedPreferences sPreferences = getApplicationContext().getSharedPreferences("com.zd.vpn", Context.MODE_PRIVATE);
             boolean read = sPreferences.getBoolean("vpn.read", false);
-            if (ConfigPathUtil.exist()) {
+            if (ConfigPathUtil.exist(getApplicationContext())) {
                 if (read) {
                     /*boolean flag = ConfigPathUtil.existFile();
                     if(!flag){
@@ -180,7 +180,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
             checkOpenVPNPermission();
             SharedPreferences sPreferences = getApplicationContext().getSharedPreferences("com.zd.vpn", Context.MODE_PRIVATE);
             boolean read = sPreferences.getBoolean("vpn.read", false);
-            if (ConfigPathUtil.exist()) {
+            if (ConfigPathUtil.exist(getApplicationContext())) {
                 if (read) {
                     /*boolean flag = ConfigPathUtil.existFile();
                     if(!flag){
@@ -307,7 +307,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
             checkOpenVPNPermission();
             SharedPreferences sPreferences = getApplicationContext().getSharedPreferences("com.zd.vpn", Context.MODE_PRIVATE);
             boolean read = sPreferences.getBoolean("vpn.read", false);
-            if (ConfigPathUtil.exist()) {
+            if (ConfigPathUtil.exist(getApplicationContext())) {
                 if (read) {
                     /*boolean flag = ConfigPathUtil.existFile();
                     if(!flag){
@@ -510,7 +510,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
             checkOpenVPNPermission();
             SharedPreferences sPreferences = getApplicationContext().getSharedPreferences("com.zd.vpn", Context.MODE_PRIVATE);
             boolean read = sPreferences.getBoolean("vpn.read", false);
-            if (ConfigPathUtil.exist()) {
+            if (ConfigPathUtil.exist(getApplicationContext())) {
                 if (read) {
                     /*boolean f = ConfigPathUtil.existFile();
                     if(!f){
@@ -667,7 +667,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
             SecuTFHelper helper = new SecuTFHelper();
             helper.loadCrt(getApplication());
 //        }
-        String path = ConfigPathUtil.getSSLPath();
+        String path = ConfigPathUtil.getSSLPath(getApplicationContext());
         if (path == null) {
             return false;
         } else {
@@ -675,7 +675,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
             if(!flag){
                 return false;
             }*/
-            File sdDir = new File(ConfigPathUtil.getSSLPath());
+            File sdDir = new File(ConfigPathUtil.getSSLPath(getApplicationContext()));
             if (sdDir.exists()) {
                 String url = paramContext.getFilesDir().getAbsolutePath();
                 File config_path = new File(url);
@@ -683,7 +683,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                     config_path.mkdirs();
 //                        File config_cer_file = new File(url + FileDownloader.CONFIG_CRT);
 //                        if (!config_cer_file.exists()) {
-                    File cer = new File(ConfigPathUtil.getSSLPath() + FileDownloader.CONFIG_CRT);
+                    File cer = new File(ConfigPathUtil.getSSLPath(getApplicationContext()) + FileDownloader.CONFIG_CRT);
                     if (cer.exists())
                         try {
                             FileUtil.copy(cer, url + FileDownloader.CONFIG_CRT);
@@ -694,7 +694,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
 
 //                        File config_key_file = new File(url + FileDownloader.CONFIG_KEY);
 //                        if (!config_key_file.exists()) {
-                    File key = new File(ConfigPathUtil.getSSLPath() + FileDownloader.CONFIG_KEY);
+                    File key = new File(ConfigPathUtil.getSSLPath(getApplicationContext()) + FileDownloader.CONFIG_KEY);
                     if (key.exists())
                         try {
                             FileUtil.copy(key, url + FileDownloader.CONFIG_KEY);
@@ -706,7 +706,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                 } else {
 //                        File config_cer_file = new File(url + FileDownloader.CONFIG_CRT);
 //                        if (!config_cer_file.exists()) {
-                    File cer = new File(ConfigPathUtil.getSSLPath() + FileDownloader.CONFIG_CRT);
+                    File cer = new File(ConfigPathUtil.getSSLPath(getApplicationContext()) + FileDownloader.CONFIG_CRT);
                     if (cer.exists())
                         try {
                             FileUtil.copy(cer, url + FileDownloader.CONFIG_CRT);
@@ -717,7 +717,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
 
 //                        File config_key_file = new File(url + FileDownloader.CONFIG_KEY);
 //                        if (!config_key_file.exists()) {
-                    File key = new File(ConfigPathUtil.getSSLPath() + FileDownloader.CONFIG_KEY);
+                    File key = new File(ConfigPathUtil.getSSLPath(getApplicationContext()) + FileDownloader.CONFIG_KEY);
                     if (key.exists())
                         try {
                             FileUtil.copy(key, url + FileDownloader.CONFIG_KEY);

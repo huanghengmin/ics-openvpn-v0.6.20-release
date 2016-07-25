@@ -35,7 +35,7 @@ public class SecuTFHelper {
 
     public static String find_serial(Context context) {
         SharedPreferences sPreferences = context.getSharedPreferences("com.zd.vpn", Context.MODE_PRIVATE);
-        File file = new File(ConfigPathUtil.getSSLPath() + FileDownloader.CONFIG_CRT);
+        File file = new File(ConfigPathUtil.getSSLPath(context) + FileDownloader.CONFIG_CRT);
         if (file.exists()) {
             try {
                 CertificateFactory certificatefactory = CertificateFactory.getInstance("X.509");
@@ -68,7 +68,7 @@ public class SecuTFHelper {
             sender.sendTF("证书容器未设置,请先配置证书容器!");
             return;
         }
-        File file = new File(ConfigPathUtil.getSSLPath() + FileDownloader.CONFIG_CRT);
+        File file = new File(ConfigPathUtil.getSSLPath(context) + FileDownloader.CONFIG_CRT);
         if (file.exists()) {
             try {
                 CertificateFactory certificatefactory = CertificateFactory.getInstance("X.509");

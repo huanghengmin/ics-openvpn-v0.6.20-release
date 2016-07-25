@@ -65,7 +65,7 @@ public class FileDownloader {
                     SecuTFHelper helper = new SecuTFHelper();
                     helper.loadCrt(paramContext);
 //                }
-                String path = ConfigPathUtil.getSSLPath();
+                String path = ConfigPathUtil.getSSLPath(paramContext);
                 if (path == null) {
                     handler.post(new Runnable() {
                         @Override
@@ -85,7 +85,7 @@ public class FileDownloader {
                         });
                         return;
                     }*/
-                    File sdDir = new File(ConfigPathUtil.getSSLPath());
+                    File sdDir = new File(ConfigPathUtil.getSSLPath(paramContext));
                     if (sdDir.exists()) {
                         String url = paramContext.getFilesDir().getAbsolutePath();
                         File config_path = new File(url);
@@ -93,7 +93,7 @@ public class FileDownloader {
                             config_path.mkdirs();
 //                                File config_cer_file = new File(url+FileDownloader.CONFIG_CRT);
 //                                if(!config_cer_file.exists()) {
-                            File cer = new File(ConfigPathUtil.getSSLPath() + FileDownloader.CONFIG_CRT);
+                            File cer = new File(ConfigPathUtil.getSSLPath(paramContext) + FileDownloader.CONFIG_CRT);
                             if (cer.exists())
                                 try {
                                     FileUtil.copy(cer, url + FileDownloader.CONFIG_CRT);
@@ -104,7 +104,7 @@ public class FileDownloader {
 
 //                                File config_key_file = new File(url+FileDownloader.CONFIG_KEY);
 //                                if(!config_key_file.exists()) {
-                            File key = new File(ConfigPathUtil.getSSLPath() + FileDownloader.CONFIG_KEY);
+                            File key = new File(ConfigPathUtil.getSSLPath(paramContext) + FileDownloader.CONFIG_KEY);
                             if (key.exists())
                                 try {
                                     FileUtil.copy(key, url + FileDownloader.CONFIG_KEY);
@@ -115,7 +115,7 @@ public class FileDownloader {
                         } else {
 //                                File config_cer_file = new File(url+FileDownloader.CONFIG_CRT);
 //                                if(!config_cer_file.exists()) {
-                            File cer = new File(ConfigPathUtil.getSSLPath() + FileDownloader.CONFIG_CRT);
+                            File cer = new File(ConfigPathUtil.getSSLPath(paramContext) + FileDownloader.CONFIG_CRT);
                             if (cer.exists())
                                 try {
                                     FileUtil.copy(cer, url + FileDownloader.CONFIG_CRT);
@@ -126,7 +126,7 @@ public class FileDownloader {
 
 //                                File config_key_file = new File(url+FileDownloader.CONFIG_KEY);
 //                                if(!config_key_file.exists()) {
-                            File key = new File(ConfigPathUtil.getSSLPath() + FileDownloader.CONFIG_KEY);
+                            File key = new File(ConfigPathUtil.getSSLPath(paramContext) + FileDownloader.CONFIG_KEY);
                             if (key.exists())
                                 try {
                                     FileUtil.copy(key, url + FileDownloader.CONFIG_KEY);

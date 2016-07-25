@@ -308,7 +308,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener, VpnSt
                 }
 //                file = new File(save_path + FileDownloader.CONFIG_CRT);
 //                if (!file.exists()) {
-                    File ssl_crt_file = new File(ConfigPathUtil.getSSLPath() + FileDownloader.CONFIG_CRT);//获取跟目录
+                    File ssl_crt_file = new File(ConfigPathUtil.getSSLPath(getApplicationContext()) + FileDownloader.CONFIG_CRT);//获取跟目录
                     if (ssl_crt_file.exists()) {
                         try {
                             FileUtil.copy(ssl_crt_file, save_path + FileDownloader.CONFIG_CRT);
@@ -322,7 +322,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener, VpnSt
 //                }
 //                file = new File(save_path + FileDownloader.CONFIG_KEY);
 //                if (!file.exists()) {
-                    File ssl_key_file = new File(ConfigPathUtil.getSSLPath() + FileDownloader.CONFIG_KEY);//获取跟目录
+                    File ssl_key_file = new File(ConfigPathUtil.getSSLPath(getApplicationContext()) + FileDownloader.CONFIG_KEY);//获取跟目录
                     if (ssl_key_file.exists()) {
                         try {
                             FileUtil.copy(ssl_key_file, save_path + FileDownloader.CONFIG_KEY);
@@ -361,7 +361,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener, VpnSt
                     }
                 });
             } else {
-                if (ConfigPathUtil.exist()) {
+                if (ConfigPathUtil.exist(this)) {
                    /* if (!read) {
                         *//*SecuTFHelper secuTFHelper = new SecuTFHelper();
                         secuTFHelper.loadCrt(this);*//*
